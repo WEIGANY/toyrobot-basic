@@ -17,12 +17,8 @@ function availablePosition(newPosition, mapSize) {
 
 function move(newPosition) {
     if (availablePosition(newPosition, state.mapSize)) {
-        var temp = {
-            robotPosition: 0,
-            mapSize: 5,
-            icon: 'R'
-        };
-        Object.assign(temp,state);
+        var temp = Object.assign({},state);
+        // var temp = JSON.parse(JSON.stringify(state));
         histories.push(temp);        
         state.robotPosition = newPosition;
         render();
