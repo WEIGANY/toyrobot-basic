@@ -6,6 +6,7 @@ var state = {
 
 var histories = [];
 
+
 function availablePosition(newPosition, mapSize) {
     if (newPosition >= 0 && newPosition < mapSize) {
         return true;
@@ -16,7 +17,13 @@ function availablePosition(newPosition, mapSize) {
 
 function move(newPosition) {
     if (availablePosition(newPosition, state.mapSize)) {
-        histories.push(state);
+        var temp = {
+            robotPosition: 0,
+            mapSize: 5,
+            icon: 'R'
+        };
+        Object.assign(temp,state);
+        histories.push(temp);        
         state.robotPosition = newPosition;
         render();
         return true;
@@ -40,9 +47,15 @@ function onCommandRight() {
     move(state.robotPosition + 1);
 }
 
+function onCommandLeft() {
+    move(state.robotPosition - 1);
+}
+
 function onReverse() {
-    state = histories.pop();
-    render();
+    if (histories.length>0) {
+        state = histories.pop();
+        render();
+    }
 }
 
 render();
