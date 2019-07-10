@@ -8,9 +8,12 @@ function onCommandRight() {
             break;
         }
     }
-    mapCells[currentRobotLocation].innerHTML = '';
-    // todo check the available of the target position
-    mapCells[currentRobotLocation + 1].innerHTML = 'R';
+    if(currentRobotLocation < (mapCells.length-1)) {
+        mapCells[currentRobotLocation].innerHTML = '';
+        // todo check the available of the target position
+        mapCells[currentRobotLocation + 1].innerHTML = 'R';
+    }
+
 }
 
 function onCommandLeft() {
@@ -22,7 +25,9 @@ function onCommandLeft() {
             break;
         }
     }
-    mapCells[currentRobotLocation].innerHTML = '';
-    // todo check the available of the target position
-    mapCells[currentRobotLocation - 1].innerHTML = 'L';
+    if (currentRobotLocation > 0){
+        mapCells[currentRobotLocation].innerHTML = '';
+        // todo check the available of the target position
+        mapCells[currentRobotLocation - 1].innerHTML = 'L';
+    }
 }
