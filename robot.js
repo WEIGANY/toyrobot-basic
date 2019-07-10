@@ -28,6 +28,6 @@ function onCommandLeft() {
     if (currentRobotLocation > 0){
         mapCells[currentRobotLocation].innerHTML = '';
         // todo check the available of the target position
-        mapCells[currentRobotLocation - 1].innerHTML = 'L';
+        mapCells[currentRobotLocation - 1].innerHTML = 'R';
     }
 }
