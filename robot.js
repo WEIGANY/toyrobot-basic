@@ -19,6 +19,8 @@ function move(newPosition) {
     if (availablePosition(newPosition, state.mapSize)) {
         var temp = Object.assign({},state);
         // var temp = JSON.parse(JSON.stringify(state));
+        // var temp = (...state);
+        // var temp = Object.create(state);
         histories.push(temp);        
         state.robotPosition = newPosition;
         render();
