@@ -27,21 +27,30 @@ class Game {
     
     render() {
         var mapCells = document.querySelectorAll('.map-cell');
-        var gameState = this.state;
+        var that = this;
         mapCells.forEach(function(aCell, index) {
-            if (index === gameState.robotPosition) {
-                aCell.innerHTML = gameState.icon;
+            if (index === that.state.robotPosition) {
+                aCell.innerHTML = that.state.icon;
             } else {
                 aCell.innerHTML = '';
             }
         })
+        /*mapCells.forEach((aCell, index) => {
+            if (index === that.state.robotPosition) {
+                aCell.innerHTML = that.state.icon;
+            } else {
+                aCell.innerHTML = '';
+            }
+        })*/
+
+
     }
     
     onCommandRight() {
         this.move(this.state.robotPosition + 1);
-    }
-    
+    }    
 }
+
 
 var game = new Game(5, 2, 'R');
 game.render();
