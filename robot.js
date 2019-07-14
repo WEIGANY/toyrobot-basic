@@ -27,9 +27,10 @@ class Game {
     
     render() {
         var mapCells = document.querySelectorAll('.map-cell');
+        var gameState = this.state;
         mapCells.forEach(function(aCell, index) {
-            if (index === this.state.robotPosition) {
-                aCell.innerHTML = this.state.icon;
+            if (index === gameState.robotPosition) {
+                aCell.innerHTML = gameState.icon;
             } else {
                 aCell.innerHTML = '';
             }
