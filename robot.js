@@ -21,7 +21,21 @@ function move(newPosition) {
         // var temp = JSON.parse(JSON.stringify(state));
         // var temp = (...state);
         // var temp = Object.create(state);
-        histories.push(temp);        
+        histories.push(temp); 
+        var h_element = histories.filter((value)=> {
+            return (value.robotPosition>1);
+        }); 
+        // var h_element = histories.filter(aState => aState.robotPostion>2);
+
+        console.log(h_element);
+        var h_postion=histories.map((value)=> {
+            return value.robotPosition;
+        });
+        console.log(h_postion);
+        var h_icon_=histories.reduce((total,value)=> {
+            return total + value.icon;   
+        },'');
+        console.log(h_icon_)  
         state.robotPosition = newPosition;
         render();
         return true;
