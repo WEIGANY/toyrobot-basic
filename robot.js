@@ -33,6 +33,10 @@ class Game {
         this.move(this.state.robotPosition + 1);
     }
 
+    onCommandLeft() {
+        this.move(this.state.robotPosition -1 );
+    }
+
 }
 
 let game = new Game(10, 2, 'R');
@@ -49,6 +53,7 @@ stdin.addListener("data", function(d) {
 
     if (command === 'start') {
         game = new Game(5, 0, 'R');
+        console.log("game start");
     } else if (command === 'left') {
         game.onCommandLeft();
     } else if (command === 'right') {
